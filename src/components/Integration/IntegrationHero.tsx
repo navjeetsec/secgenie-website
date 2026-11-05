@@ -19,7 +19,7 @@ export const IntegrationHero: React.FC = () => {
           <span>UNIFIED CYBER FABRIC</span>
         </div>
 
-        <h1 className="mb-5 text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-6xl lg:text-7xl">
+        <h1 className="mb-5 text-3xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-4xl md:text-5xl max-w-4xl mx-auto">
           Seamless Stack
           <span> Integration</span>
           <span className="mt-1 block bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 bg-clip-text text-transparent">

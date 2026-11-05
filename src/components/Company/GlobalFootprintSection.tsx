@@ -97,7 +97,7 @@ export const GlobalFootprintSection: React.FC<GlobalFootprintSectionProps> = ({
                     onClick={onOpenBriefing}
                     className="inline-flex items-center justify-center px-8 py-3.5 rounded-full text-sm font-bold text-slate-900 bg-white hover:bg-slate-100 transition-all shadow-lg hover:shadow-cyan-500/20 cursor-pointer"
                   >
-                    Book a Executive Briefing
+                    Book an Executive Briefing
                   </button>
                 </div>
               </div>

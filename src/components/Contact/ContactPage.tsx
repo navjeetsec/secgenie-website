@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { ArrowRight, Check, Mail, MessageSquare } from 'lucide-react';
-import { getImageAsset } from '../../assets/imageAssets';
+import React, { useState } from "react";
+import { ArrowRight, Check, Mail, MessageSquare } from "lucide-react";
+import { getImageAsset } from "../../assets/imageAssets";
 
 interface ContactPageProps {
   onBackToHome?: () => void;
 }
 
 export const ContactPage: React.FC<ContactPageProps> = () => {
-  const [fullName, setFullName] = useState('');
-  const [workEmail, setWorkEmail] = useState('');
-  const [companyName, setCompanyName] = useState('');
-  const [message, setMessage] = useState('');
+  const [fullName, setFullName] = useState("");
+  const [workEmail, setWorkEmail] = useState("");
+  const [companyName, setCompanyName] = useState("");
+  const [message, setMessage] = useState("");
   const [emailPrepared, setEmailPrepared] = useState(false);
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -20,10 +20,10 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
     const body = [
       `Name: ${fullName.trim()}`,
       `Work email: ${workEmail.trim()}`,
-      `Company: ${companyName.trim() || 'Not provided'}`,
-      '',
+      `Company: ${companyName.trim() || "Not provided"}`,
+      "",
       message.trim(),
-    ].join('\n');
+    ].join("\n");
 
     window.location.href = `mailto:info@secgenie.ai?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setEmailPrepared(true);
@@ -31,9 +31,12 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
 
   return (
     <main className="relative isolate min-h-[calc(100vh-80px)] overflow-hidden bg-slate-950 text-white">
-      <div aria-hidden="true" className="pointer-events-none absolute inset-0 -z-10">
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 -z-10"
+      >
         <img
-          src={getImageAsset('cyber_threat_mesh_hero_1793428361251.jpg')}
+          src={getImageAsset("cyber_threat_mesh_hero_1793428361251.jpg")}
           alt=""
           className="h-full w-full object-cover opacity-20 mix-blend-screen"
         />
@@ -44,21 +47,22 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
 
       <div className="mx-auto max-w-7xl px-4 pb-16 pt-8 sm:px-6 sm:pb-20 sm:pt-10 lg:px-8 lg:pb-24 lg:pt-12">
         <div className="mb-8 max-w-3xl">
-          <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.15] tracking-tight text-white">
             Let&apos;s talk about
             <span className="block bg-gradient-to-r from-cyan-300 via-sky-400 to-blue-500 bg-clip-text text-transparent">
               your security operations
             </span>
           </h1>
           <p className="mt-6 max-w-2xl text-base leading-relaxed text-slate-300 sm:text-lg">
-            Tell us about your team and what you want to improve. We&apos;ll help you explore how SecGenie AI fits your security stack.
+            Tell us about your team and what you want to improve. We&apos;ll
+            help you explore how SecGenie AI fits your security stack.
           </p>
         </div>
 
         <div className="grid overflow-hidden rounded-[28px] border border-slate-700/80 bg-slate-900/70 shadow-[0_24px_80px_rgba(0,0,0,0.35)] backdrop-blur-xl lg:grid-cols-[0.85fr_1.15fr]">
           <aside className="relative flex min-h-[340px] flex-col justify-between overflow-hidden p-7 sm:p-10 lg:min-h-[620px]">
             <img
-              src={getImageAsset('contact_phone_lock_1793441628323.jpg')}
+              src={getImageAsset("contact_phone_lock_1793441628323.jpg")}
               alt="Cybersecurity shield and connected devices"
               className="absolute inset-0 h-full w-full object-cover opacity-35"
             />
@@ -71,7 +75,8 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                 A clearer path to stronger cyber defense.
               </h2>
               <p className="mt-4 max-w-md text-sm leading-relaxed text-slate-300">
-                Connect with our team to discuss exposure management, SOC workflows, and integration with your existing tools.
+                Connect with our team to discuss exposure management, SOC
+                workflows, and integration with your existing tools.
               </p>
             </div>
 
@@ -91,12 +96,20 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                 <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl border border-emerald-400/25 bg-emerald-400/10 text-emerald-300">
                   <Check className="h-7 w-7" />
                 </div>
-                <h2 className="text-2xl font-bold text-white sm:text-3xl">Your enquiry is ready</h2>
+                <h2 className="text-2xl font-bold text-white sm:text-3xl">
+                  Your enquiry is ready
+                </h2>
                 <p className="mt-4 max-w-lg text-sm leading-relaxed text-slate-300">
-                  Your email app should open with your message addressed to SecGenie AI. Review and send the email to complete your enquiry. If it did not open, contact us at{' '}
-                  <a className="font-semibold text-cyan-300 hover:text-cyan-200" href="mailto:info@secgenie.ai">
+                  Your email app should open with your message addressed to
+                  SecGenie AI. Review and send the email to complete your
+                  enquiry. If it did not open, contact us at{" "}
+                  <a
+                    className="font-semibold text-cyan-300 hover:text-cyan-200"
+                    href="mailto:info@secgenie.ai"
+                  >
                     info@secgenie.ai
-                  </a>.
+                  </a>
+                  .
                 </p>
                 <button
                   type="button"
@@ -109,17 +122,24 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
             ) : (
               <>
                 <div className="mb-8">
-                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-cyan-300">Get in touch</p>
-                  <h2 className="mt-2 text-2xl font-bold text-white sm:text-3xl">Send our team a message</h2>
+                  <p className="text-xs font-bold uppercase tracking-[0.16em] text-cyan-300">
+                    Get in touch
+                  </p>
+                  <h2 className="mt-2 text-2xl font-bold text-white sm:text-3xl">
+                    Reach out to our team
+                  </h2>
                   <p className="mt-3 text-sm leading-relaxed text-slate-400">
-                    Share a few details and we&apos;ll prepare an email for you to send.
+                    Share a few details and we’ll draft an email for you to send
                   </p>
                 </div>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid gap-5 sm:grid-cols-2">
                     <div>
-                      <label htmlFor="contact-name" className="mb-2 block text-sm font-semibold text-slate-200">
+                      <label
+                        htmlFor="contact-name"
+                        className="mb-2 block text-sm font-semibold text-slate-200"
+                      >
                         Full name <span className="text-cyan-300">*</span>
                       </label>
                       <input
@@ -134,7 +154,10 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                       />
                     </div>
                     <div>
-                      <label htmlFor="contact-email" className="mb-2 block text-sm font-semibold text-slate-200">
+                      <label
+                        htmlFor="contact-email"
+                        className="mb-2 block text-sm font-semibold text-slate-200"
+                      >
                         Work email <span className="text-cyan-300">*</span>
                       </label>
                       <input
@@ -151,7 +174,10 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="contact-company" className="mb-2 block text-sm font-semibold text-slate-200">
+                    <label
+                      htmlFor="contact-company"
+                      className="mb-2 block text-sm font-semibold text-slate-200"
+                    >
                       Company
                     </label>
                     <input
@@ -166,7 +192,10 @@ export const ContactPage: React.FC<ContactPageProps> = () => {
                   </div>
 
                   <div>
-                    <label htmlFor="contact-message" className="mb-2 block text-sm font-semibold text-slate-200">
+                    <label
+                      htmlFor="contact-message"
+                      className="mb-2 block text-sm font-semibold text-slate-200"
+                    >
                       How can we help? <span className="text-cyan-300">*</span>
                     </label>
                     <textarea

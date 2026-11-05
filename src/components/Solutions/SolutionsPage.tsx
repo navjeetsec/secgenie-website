@@ -71,9 +71,9 @@ export const SolutionsPage: React.FC<SolutionsPageProps> = ({
 
           {/* Main Headline */}
           <RevealItem className="w-full">
-          <h1 className="text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-white mb-6 leading-[1.1]">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-white mb-4 sm:mb-5 leading-[1.15] max-w-4xl mx-auto">
             Tailored Cyber Defense{' '}
-  <span className="ml-3 text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500">
+            <span className="ml-2 text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500">
               Solutions
             </span>
           </h1>

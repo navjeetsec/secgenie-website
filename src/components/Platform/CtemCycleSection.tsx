@@ -13,7 +13,7 @@ import {
 const environments = [
   { name: "Cloud infrastructure", icon: Cloud },
   { name: "Enterprise networks", icon: Network },
-  { name: "Applications and identities", icon: PanelsTopLeft },
+  { name: "Applications & identities", icon: PanelsTopLeft },
   { name: "Hybrid environments", icon: Workflow },
 ];
 
@@ -154,13 +154,13 @@ export const CtemCycleSection: React.FC = () => (
             {environments.map(({ name, icon: Icon }) => (
               <li
                 key={name}
-                className="flex items-center gap-3 rounded-xl border border-slate-700 bg-slate-900/80 px-4 py-3 text-sm font-medium text-slate-200"
+                className="flex h-[54px] sm:h-[56px] items-center gap-3 rounded-xl border border-slate-700/80 bg-slate-900/80 px-3.5 sm:px-4 text-xs sm:text-[13px] md:text-sm font-medium text-slate-200 transition-colors hover:border-slate-600 shadow-xs"
               >
                 <Icon
                   aria-hidden="true"
                   className="h-5 w-5 shrink-0 text-cyan-300"
                 />
-                {name}
+                <span className="truncate whitespace-nowrap">{name}</span>
               </li>
             ))}
           </ul>

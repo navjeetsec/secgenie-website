@@ -148,61 +148,51 @@ export const ExistingStackSection: React.FC<ExistingStackSectionProps> = ({ onOp
   };
 
   return (
-    <section className="relative py-24 bg-white text-slate-900 overflow-hidden">
+    <section className="relative py-16 sm:py-20 md:py-24 bg-white text-slate-900 overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Block matching Screenshot 9 */}
-        <div className="text-center max-w-4xl mx-auto mb-10">
-          <div className="inline-flex items-center px-4 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-700 text-xs font-bold uppercase tracking-wider mb-5">
+        {/* Header Block */}
+        <div className="text-center max-w-3xl mx-auto mb-10 sm:mb-12">
+          <div className="inline-flex items-center px-4 py-1 rounded-full bg-sky-50 border border-sky-200 text-sky-700 text-xs font-bold uppercase tracking-wider mb-4 sm:mb-5">
             ENTERPRISE CYBER DEFENCE ARCHITECTURE
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-3 sm:mb-4">
             Works With Your Existing{' '}
             <span className="text-cyan-500">
               Security Stack
             </span>
           </h2>
 
-          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed mb-8 font-normal">
+          <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">
             SecGenie connects natively via API without requiring sensor reinstalls or architectural re-engineering.
           </p>
-
-          <div className="flex items-center justify-center gap-4">
-            <button
-              onClick={onOpenConnectors}
-              className="px-6 py-3 rounded-full bg-slate-950 hover:bg-slate-800 text-white font-bold text-sm shadow-lg transition-all flex items-center gap-2 group"
-            >
-              <span>View All 30+ Connectors</span>
-              <ArrowRight className="w-4 h-4 text-cyan-400 group-hover:translate-x-1 transition-transform" />
-            </button>
-          </div>
         </div>
 
         {/* Mobile carousel controls */}
-        <div className="mb-3 flex justify-between md:hidden">
+        <div className="mb-4 flex justify-between md:hidden">
           <button
             onClick={handlePrev}
-            className="p-2 text-slate-500 transition-colors hover:text-cyan-600"
+            className="p-2.5 rounded-full hover:bg-slate-100 text-slate-500 transition-colors hover:text-cyan-600"
             aria-label="Previous connector"
           >
             <ArrowLeft className="h-6 w-6" />
           </button>
           <button
             onClick={handleNext}
-            className="p-2 text-slate-500 transition-colors hover:text-cyan-600"
+            className="p-2.5 rounded-full hover:bg-slate-100 text-slate-500 transition-colors hover:text-cyan-600"
             aria-label="Next connector"
           >
             <ArrowRight className="h-6 w-6" />
           </button>
         </div>
 
-        {/* Horizontal Accordion / Cards Layout matching Screenshot 9 */}
+        {/* Horizontal Accordion / Cards Layout */}
         <div className="flex items-center gap-2 sm:gap-4">
           {/* Desktop controls sit outside the card row */}
           <div className="hidden shrink-0 md:block">
             <button
               onClick={handlePrev}
-              className="p-2 text-slate-500 transition-colors hover:text-cyan-600"
+              className="p-2.5 rounded-full hover:bg-slate-100 text-slate-400 transition-colors hover:text-cyan-600"
               aria-label="Previous connector"
             >
               <ArrowLeft className="h-6 w-6" />
@@ -285,7 +275,7 @@ export const ExistingStackSection: React.FC<ExistingStackSectionProps> = ({ onOp
           <div className="hidden shrink-0 md:block">
             <button
               onClick={handleNext}
-              className="p-2 text-slate-500 transition-colors hover:text-cyan-600"
+              className="p-2.5 rounded-full hover:bg-slate-100 text-slate-400 transition-colors hover:text-cyan-600"
               aria-label="Next connector"
             >
               <ArrowRight className="h-6 w-6" />
