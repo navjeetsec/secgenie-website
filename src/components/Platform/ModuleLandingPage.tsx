@@ -76,7 +76,7 @@ export const ModuleLandingPage: React.FC<ModuleLandingPageProps> = ({
         <div aria-hidden="true" className="pointer-events-none absolute -right-20 bottom-0 h-96 w-96 rounded-full bg-blue-600/15 blur-3xl" />
         <div className="relative mx-auto max-w-5xl text-center">
           <p className="mb-5 text-xs font-bold uppercase tracking-[0.18em] text-cyan-300">{content.eyebrow}</p>
-          <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-6xl">{content.title}</h1>
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold leading-[1.15] tracking-tight max-w-4xl mx-auto">{content.title}</h1>
           <p className="mx-auto mt-6 max-w-3xl text-base leading-relaxed text-slate-300 sm:text-xl">{content.description}</p>
           <button
             type="button"

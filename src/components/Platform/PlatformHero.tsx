@@ -19,12 +19,12 @@ export const PlatformHero: React.FC<PlatformHeroProps> = ({ onBookDemo }) => {
       </div>
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-slate-950/75 via-slate-950/55 to-slate-950/80" />
 
-      <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-4 py-20 text-center sm:px-6 lg:px-8">
-        <div className="mb-8 inline-flex items-center rounded-full border border-cyan-400/20 bg-slate-900/80 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-cyan-200 shadow-sm backdrop-blur-sm sm:text-xs">
+      <div className="relative z-10 mx-auto flex w-full max-w-5xl flex-col items-center px-4 py-12 sm:py-16 md:py-20 text-center sm:px-6 lg:px-8">
+        <div className="mb-5 inline-flex items-center rounded-full border border-cyan-400/20 bg-slate-900/80 px-4 py-1.5 text-[11px] font-semibold uppercase tracking-wider text-cyan-200 shadow-sm backdrop-blur-sm sm:text-xs">
           <span>AUTONOMOUS CYBER DEFENSE ARCHITECTURE</span>
         </div>
 
-        <h1 className="mb-5 text-4xl font-extrabold leading-[1.08] tracking-tight text-white sm:text-6xl lg:text-7xl">
+        <h1 className="mb-5 text-3xl font-extrabold leading-[1.15] tracking-tight text-white sm:text-4xl md:text-5xl max-w-4xl mx-auto">
           AI Autonomous Cyber Defense
           <span className="mt-1 block bg-gradient-to-r from-cyan-400 via-sky-400 to-blue-500 bg-clip-text text-transparent">
             Platform

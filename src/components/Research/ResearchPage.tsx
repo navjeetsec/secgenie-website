@@ -89,7 +89,7 @@ export const ResearchPage: React.FC = () => {
             EDITORIAL &amp; ENGINEERING INSIGHTS
           </div>
 
-          <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-[#0066f5] tracking-tight leading-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-black text-[#0066f5] tracking-tight leading-[1.15] mb-4 sm:mb-5">
             Research &amp; Technical Insights
           </h1>
 

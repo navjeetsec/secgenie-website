@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Layers } from "lucide-react";
 
 interface ConnectorItem {
   id: string;
@@ -199,10 +200,7 @@ export const IntegrationCatalogSection: React.FC = () => {
       selectedCategory === "All" || connector.category === selectedCategory,
   );
 
-  const renderLogo = (
-    type: ConnectorItem["logoType"],
-    compact = false,
-  ) => {
+  const renderLogo = (type: ConnectorItem["logoType"], compact = false) => {
     const marks: Record<ConnectorItem["logoType"], React.ReactNode> = {
       splunk: (
         <g fill="currentColor">
@@ -361,12 +359,12 @@ export const IntegrationCatalogSection: React.FC = () => {
 
     return (
       <span
-        className={`relative flex shrink-0 items-center justify-center ${compact ? "h-6 w-6 rounded-md border border-white/90 shadow-[0_2px_0_rgba(148,163,184,0.35),0_3px_6px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.9)]" : "h-12 w-12 rounded-xl border border-white/90 shadow-[0_4px_0_rgba(148,163,184,0.4),0_8px_16px_rgba(0,0,0,0.24),inset_0_1px_0_rgba(255,255,255,0.9)] transition-transform duration-200 group-hover:-translate-y-0.5 after:absolute after:inset-x-2 after:top-[2px] after:h-px after:bg-white/80"} ${colors[type]}`}
+        className={`relative flex shrink-0 items-center justify-center ${compact ? "h-5 w-5 rounded-md border border-white/90 shadow-[0_2px_0_rgba(148,163,184,0.35),0_3px_6px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.9)]" : "h-12 w-12 rounded-xl border border-white/90 shadow-[0_4px_0_rgba(148,163,184,0.4),0_8px_16px_rgba(0,0,0,0.24),inset_0_1px_0_rgba(255,255,255,0.9)] transition-transform duration-200 group-hover:-translate-y-0.5 after:absolute after:inset-x-2 after:top-[2px] after:h-px after:bg-white/80"} ${colors[type]}`}
       >
         <svg
           viewBox="0 0 24 24"
           aria-hidden="true"
-          className={`${compact ? "h-4 w-4" : "h-6 w-6 drop-shadow-[0_1px_1px_rgba(15,23,42,0.28)]"}`}
+          className={`${compact ? "h-3.5 w-3.5" : "h-6 w-6 drop-shadow-[0_1px_1px_rgba(15,23,42,0.28)]"}`}
         >
           {marks[type]}
         </svg>
@@ -386,20 +384,21 @@ export const IntegrationCatalogSection: React.FC = () => {
               Built for your security stack
             </span>
             <h2 className="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
-              One platform. Your tools.
+              Your tools, unified in one platform
             </h2>
             <p className="mt-3 max-w-4xl text-sm leading-relaxed text-slate-300 sm:text-base">
               Connect the security products you already use and bring their
-              signals into a clearer, <span className="whitespace-nowrap">coordinated workflow.</span>
+              signals into a clearer,{" "}
+              <span className="whitespace-nowrap">coordinated workflow.</span>
             </p>
           </div>
 
-          <div className="rounded-2xl border border-white/[0.08] bg-slate-900/55 p-4 shadow-lg shadow-black/10 backdrop-blur-xl sm:p-5">
-            <p className="mb-3 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
+          <div className="rounded-2xl border border-white/[0.08] bg-slate-900/55 p-3 sm:p-4 shadow-lg shadow-black/10 backdrop-blur-xl">
+            <p className="mb-2.5 text-[11px] font-semibold uppercase tracking-[0.14em] text-slate-400">
               Filter by category
             </p>
             <div
-              className="no-scrollbar flex flex-nowrap gap-2 overflow-x-auto"
+              className="no-scrollbar flex flex-nowrap items-center justify-between gap-1.5 sm:gap-2 w-full overflow-x-auto py-0.5"
               role="group"
               aria-label="Filter integrations by category"
             >
@@ -418,16 +417,22 @@ export const IntegrationCatalogSection: React.FC = () => {
                     type="button"
                     onClick={() => setSelectedCategory(cat)}
                     aria-pressed={isActive}
-                    className={`inline-flex shrink-0 items-center gap-2 rounded-lg border px-3 py-2 text-xs font-semibold transition-colors sm:text-sm ${
+                    className={`inline-flex shrink-0 items-center justify-center gap-1.5 sm:gap-2 rounded-lg border px-2 sm:px-2.5 md:px-3 py-1.5 sm:py-2 text-[11px] sm:text-xs md:text-[13px] font-semibold transition-all whitespace-nowrap ${
                       isActive
                         ? "border-cyan-300/40 bg-cyan-300/10 text-cyan-100 shadow-[inset_0_0_0_1px_rgba(103,232,249,0.06)]"
                         : "border-transparent bg-white/[0.035] text-slate-300 hover:border-white/10 hover:bg-white/[0.07] hover:text-white"
                     }`}
                   >
-                      {categoryLogo && renderLogo(categoryLogo, true)}
-                      {cat}
+                    {categoryLogo ? (
+                      renderLogo(categoryLogo, true)
+                    ) : (
+                      <span className="relative flex h-5 w-5 shrink-0 items-center justify-center rounded-md border border-cyan-400/30 bg-cyan-950/70 text-cyan-300 shadow-[0_2px_0_rgba(148,163,184,0.35),0_3px_6px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.9)]">
+                        <Layers className="h-3.5 w-3.5 text-cyan-300" />
+                      </span>
+                    )}
+                    <span>{cat}</span>
                     <span
-                      className={`min-w-5 rounded-md px-1.5 py-0.5 text-center text-[10px] leading-none ${
+                      className={`min-w-4 rounded px-1.5 py-0.5 text-center text-[10px] leading-none shrink-0 ${
                         isActive
                           ? "bg-cyan-200/15 text-cyan-100"
                           : "bg-slate-950/60 text-slate-500"
@@ -464,7 +469,7 @@ export const IntegrationCatalogSection: React.FC = () => {
           {filtered.map((item) => (
             <article
               key={item.id}
-              className="group relative flex min-h-[190px] w-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-white/[0.04] p-5 shadow-[0_8px_32px_rgba(2,8,23,0.18)] backdrop-blur-xl transition-colors duration-300 hover:border-cyan-300/35 hover:bg-white/[0.07] hover:shadow-[0_16px_40px_rgba(6,182,212,0.1)]"
+              className="group relative flex min-h-[190px] w-full flex-col overflow-hidden rounded-2xl border border-white/10 bg-slate-900/70 p-5 transition-all duration-300 hover:border-cyan-300/35 hover:bg-slate-900/90 hover:shadow-[0_12px_30px_rgba(6,182,212,0.12)]"
             >
               <div className="pointer-events-none absolute -right-10 -top-12 h-32 w-32 rounded-full bg-cyan-400/0 blur-3xl transition-colors duration-300 group-hover:bg-cyan-400/10" />
               <div className="relative flex items-start justify-between gap-3">
