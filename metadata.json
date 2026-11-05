@@ -1,0 +1,6 @@
+{
+  "name": "SecGenie AI | Unified Cyber Defense Platform",
+  "description": "Combining Threat and Exposure Intelligence in real-time for SOC operations. Ingest signals from SIEM, EDR, and vulnerability scanners into a unified exposure graph.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
