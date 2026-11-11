@@ -158,7 +158,7 @@ export const ExistingStackSection: React.FC<ExistingStackSectionProps> = ({ onOp
 
           <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight mb-3 sm:mb-4">
             Works With Your Existing{' '}
-            <span className="text-cyan-500">
+            <span className="text-[#0066f5]">
               Security Stack
             </span>
           </h2>

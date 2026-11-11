@@ -118,9 +118,10 @@ export const RealTimeSecuritySection: React.FC = () => {
             </div>
 
             {/* Main Headline - Bright Blue matching Screenshot 100 */}
-            <h2 className="text-4xl sm:text-5xl lg:text-5xl xl:text-[54px] font-black tracking-tight text-[#0066f5] leading-[1.12] mb-3 font-sans">
-              Built for enterprise security.
-            </h2>
+            <h5 className="text-4xl sm:text-3xl lg:text-5xl xl:text-[34px] font-black tracking-tight leading-[1.12] mb-3 font-sans">
+              Built for enterprise<br />
+              security.
+            </h5>
 
             {/* Descriptive Paragraph */}
             <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-normal max-w-xl mx-auto">

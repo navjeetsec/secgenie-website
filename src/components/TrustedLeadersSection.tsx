@@ -58,8 +58,8 @@ export const TrustedLeadersSection: React.FC = () => {
             TRUSTED ALLIANCES
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-blue-600 tracking-tight mb-4">
-            Built for Security Teams Across Industries
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+            <span className="text-blue-600">Built</span> for Security Teams Across Industries
           </h2>
 
           <p className="text-sm sm:text-base text-slate-600 max-w-2xl mx-auto leading-relaxed font-normal">

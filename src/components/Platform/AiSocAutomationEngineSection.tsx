@@ -8,8 +8,8 @@ export const AiSocAutomationEngineSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Block matching Screenshot 1 */}
         <div className="text-center max-w-4xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-blue-600 tracking-tight mb-4">
-            AI SOC Automation Engine
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+            <span className="text-blue-600">AI</span> SOC Automation Engine
           </h2>
 
           <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-4">

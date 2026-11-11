@@ -64,7 +64,7 @@ export const CtemCycleSection: React.FC = () => (
         <p className="mb-5 inline-flex rounded-full border border-cyan-800/60 bg-cyan-950/80 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-cyan-300 shadow-inner">
           Exposure management as a living system
         </p>
-        <h2 className="mb-6 text-3xl font-extrabold tracking-tight text-blue-500 sm:text-5xl">
+        <h2 className="mb-6 text-3xl font-extrabold tracking-tight text-slate-200 sm:text-5xl">
           From Periodic Scans to Continuous Intelligence
         </h2>
         <p className="mx-auto max-w-3xl text-sm font-normal leading-relaxed text-slate-300 sm:text-base">

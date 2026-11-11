@@ -59,8 +59,8 @@ export const CoreAiSocCapabilitiesSection: React.FC = () => {
             CORE ENGINE 02
           </div>
 
-          <h2 className="text-3xl sm:text-5xl font-extrabold text-blue-600 tracking-tight mb-4">
-            Core AISOC Capabilities
+          <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight mb-4">
+            <span className="text-blue-600">Core</span> AISOC Capabilities
           </h2>
 
           <h3 className="text-lg sm:text-xl font-bold text-slate-900 mb-4">
