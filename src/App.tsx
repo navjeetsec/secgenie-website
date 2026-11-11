@@ -13,7 +13,6 @@ import { ScrollReveal } from './components/Common/ScrollReveal';
 import { CursorSpotlight } from './components/Common/CursorSpotlight';
 import { SecGenieChatbot } from './components/Chat/SecGenieChatbot';
 import { BackToTopButton } from './components/Navigation/BackToTopButton';
-import { WhySecGenieSection } from './components/WhySecGenieSection';
 import { SecGenieFaqSection } from './components/SecGenieFaqSection';
 
 // Platform Page Component
@@ -58,49 +57,6 @@ const getPageFromPath = (pathname: string): NavPage => {
   return pages.find((candidate) => candidate === page) ?? 'home';
 };
 
-const pageMetadata: Record<NavPage, { title: string; description: string }> = {
-  home: {
-    title: 'SecGenie AI | CTEM Platform & AI SOC Automation',
-    description: 'Explore a CTEM platform for threat exposure management, attack path analysis, and AI SOC workflows that complement your existing security tools.',
-  },
-  platform: {
-    title: 'CTEM Platform & AI SOC Automation | SecGenie AI',
-    description: 'Explore SecGenie Exposure Intelligence, AI SOC automation, attack path analysis, and the continuous threat exposure management cycle.',
-  },
-  'exposure-intelligence': {
-    title: 'Threat Exposure Management & Attack Path Analysis | SecGenie AI',
-    description: 'Explore Exposure Intelligence for threat exposure management, vulnerability prioritization, and attack path analysis across critical assets.',
-  },
-  'ai-soc-automation': {
-    title: 'AI SOC Platform & Security Operations Automation | SecGenie AI',
-    description: 'Explore AI SOC automation for alert enrichment, triage, and analyst workflows that complement existing SIEM and EDR tools.',
-  },
-  'ctem-platform': {
-    title: 'CTEM Platform | Continuous Threat Exposure Management | SecGenie AI',
-    description: 'Learn how the SecGenie CTEM platform supports discovery, prioritization, validation, mobilization, and measurement of threat exposures.',
-  },
-  solutions: {
-    title: 'AI SOC Platform & Cyber Security Automation Use Cases | SecGenie AI',
-    description: 'Explore use cases for AI-assisted SOC triage, alert fatigue reduction, attack surface visibility, and threat exposure prioritization.',
-  },
-  integration: {
-    title: 'Security Integrations | SecGenie AI',
-    description: 'Explore security integrations for connecting SecGenie workflows with your existing SIEM, EDR, and security tools.',
-  },
-  company: {
-    title: 'About SecGenie AI | Continuous Cyber Defense',
-    description: 'Learn about SecGenie AI, its mission, team, and approach to continuous cyber defense.',
-  },
-  research: {
-    title: 'Cybersecurity Research & Insights | SecGenie AI',
-    description: 'Read SecGenie insights on CTEM, threat exposure management, attack paths, and security operations.',
-  },
-  contact: {
-    title: 'Contact SecGenie AI | Book a Technical Demo',
-    description: 'Contact SecGenie AI to discuss CTEM, AI SOC automation, integrations, and technical evaluation.',
-  },
-};
-
 const platformModules: Partial<Record<NavPage, PlatformModule>> = {
   'exposure-intelligence': 'exposure-intelligence',
   'ai-soc-automation': 'ai-soc-automation',
@@ -128,25 +84,6 @@ export default function App() {
     window.addEventListener('popstate', handlePopState);
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
-
-  useEffect(() => {
-    const metadata = pageMetadata[currentPage];
-    document.title = metadata.title;
-
-    const description = document.querySelector<HTMLMetaElement>('meta[name="description"]');
-    description?.setAttribute('content', metadata.description);
-
-    const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-    const canonicalPath = window.location.pathname.replace(/\/+$/, '') || '/';
-    const canonicalUrl = `${window.location.origin}${canonicalPath}`;
-    canonical?.setAttribute('href', canonicalUrl);
-
-    document.querySelector('meta[property="og:title"]')?.setAttribute('content', metadata.title);
-    document.querySelector('meta[property="og:description"]')?.setAttribute('content', metadata.description);
-    document.querySelector('meta[property="og:url"]')?.setAttribute('content', canonicalUrl);
-    document.querySelector('meta[name="twitter:title"]')?.setAttribute('content', metadata.title);
-    document.querySelector('meta[name="twitter:description"]')?.setAttribute('content', metadata.description);
-  }, [currentPage]);
 
   // Scroll to top on page switch
   useEffect(() => {
@@ -198,10 +135,6 @@ export default function App() {
             {/* Built for Real Time Security */}
             <ScrollReveal staggerChildren={0.08}>
               <RealTimeSecuritySection />
-            </ScrollReveal>
-
-            <ScrollReveal>
-              <WhySecGenieSection />
             </ScrollReveal>
 
             {/* Works With Your Existing Security Stack */}
