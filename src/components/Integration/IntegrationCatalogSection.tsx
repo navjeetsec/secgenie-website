@@ -200,174 +200,42 @@ export const IntegrationCatalogSection: React.FC = () => {
       selectedCategory === "All" || connector.category === selectedCategory,
   );
 
+  const logoAssets: Record<ConnectorItem["logoType"], string> = {
+    splunk: "/assets/integrations/splunk.png",
+    ms: "/assets/integrations/sentinel.png",
+    elastic: "/assets/integrations/elastic.png",
+    google: "/assets/integrations/google-secops.png",
+    crowdstrike: "/assets/integrations/crowdstrike.png",
+    sentinelone: "/assets/integrations/sentinelone.png",
+    defender: "/assets/integrations/defender.png",
+    paloalto: "/assets/integrations/cortex.png",
+    aws: "/assets/integrations/aws.png",
+    azure: "/assets/integrations/azure.png",
+    gcp: "/assets/integrations/gcp.svg",
+    wiz: "/assets/integrations/wiz.png",
+    okta: "/assets/integrations/okta.png",
+    entra: "/assets/integrations/entra.png",
+    qualys: "/assets/integrations/qualys.png",
+    servicenow: "/assets/integrations/servicenow.png",
+  };
+
   const renderLogo = (type: ConnectorItem["logoType"], compact = false) => {
-    const marks: Record<ConnectorItem["logoType"], React.ReactNode> = {
-      splunk: (
-        <g fill="currentColor">
-          <circle cx="12" cy="12" r="3" />
-          <circle cx="5" cy="5" r="2" />
-          <circle cx="19" cy="5" r="2" />
-          <circle cx="5" cy="19" r="2" />
-          <circle cx="19" cy="19" r="2" />
-          <path
-            d="M7 6.5 10 10M17 6.5 14 10M7 17.5 10 14M17 17.5 14 14"
-            stroke="currentColor"
-            strokeWidth="2"
-          />
-        </g>
-      ),
-      ms: (
-        <g>
-          <path fill="#f25022" d="M2 2h9v9H2z" />
-          <path fill="#7fba00" d="M13 2h9v9h-9z" />
-          <path fill="#00a4ef" d="M2 13h9v9H2z" />
-          <path fill="#ffb900" d="M13 13h9v9h-9z" />
-        </g>
-      ),
-      elastic: (
-        <g
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="3"
-          strokeLinecap="round"
-        >
-          <path d="M5 7h14M5 17h14M8 7l4 5-4 5M16 7l-4 5 4 5" />
-        </g>
-      ),
-      google: (
-        <g fill="none" strokeWidth="3.5" strokeLinecap="round">
-          <path d="M18.5 7.5A8 8 0 1 0 20 12h-7" stroke="#4285f4" />
-          <path d="M5.2 7.2A8 8 0 0 1 18.5 7.5" stroke="#ea4335" />
-          <path d="M5.2 16.8A8 8 0 0 1 3.8 12" stroke="#34a853" />
-          <path d="M3.8 12a8 8 0 0 1 1.4-4.8" stroke="#fbbc05" />
-        </g>
-      ),
-      crowdstrike: (
-        <g fill="currentColor">
-          <path d="M12 2 9.3 8.4 3 6l3.3 6L2 16l7-.8L12 22l3-6.8 7 .8-4.3-4L21 6l-6.3 2.4L12 2Z" />
-          <path
-            d="m12 6-1.2 5.2L7 12l4 1.1L12 18l1-4.9 4-1.1-3.8-.8L12 6Z"
-            fill="white"
-          />
-        </g>
-      ),
-      sentinelone: (
-        <path
-          fill="currentColor"
-          d="M12 1.5 14.7 8l6.8-1.8-4.1 5.8 4.1 5.8-6.8-1.8L12 22.5 9.3 16l-6.8 1.8 4.1-5.8-4.1-5.8L9.3 8 12 1.5Z"
-        />
-      ),
-      defender: (
-        <path
-          d="M12 2 20 5v6c0 5-3.4 9-8 11-4.6-2-8-6-8-11V5l8-3Z"
-          fill="currentColor"
-        />
-      ),
-      paloalto: (
-        <g fill="none" stroke="currentColor" strokeWidth="2.5">
-          <path d="M12 2 21 7v10l-9 5-9-5V7l9-5Z" />
-          <path
-            d="m7 14 5-7 5 7M9 12h6"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          />
-        </g>
-      ),
-      aws: (
-        <g
-          fill="none"
-          stroke="currentColor"
-          strokeWidth="2.5"
-          strokeLinecap="round"
-        >
-          <path d="M5 8.5 12 4l7 4.5v7L12 20l-7-4.5v-7Z" />
-          <path d="M8 13.5h8M10 10.5h4" />
-          <path d="M8 21c4 2 9 1.5 12-1" stroke="#ff9900" />
-        </g>
-      ),
-      azure: (
-        <g fill="currentColor">
-          <path d="M12 2 3 19h6l6-11-3-6Z" />
-          <path d="m13 13-3 6h12l-6-6h-3Z" opacity=".7" />
-        </g>
-      ),
-      gcp: (
-        <g fill="none" strokeWidth="3.5" strokeLinecap="round">
-          <path
-            d="M7 18h10a4 4 0 0 0 0-8 5 5 0 0 0-9-1 4.5 4.5 0 0 0-1 9Z"
-            stroke="#4285f4"
-          />
-          <path d="M8 9a5 5 0 0 1 9 1" stroke="#34a853" />
-          <path d="M7 18h4" stroke="#fbbc05" />
-          <path d="M17 10a4 4 0 0 1 0 8" stroke="#ea4335" />
-        </g>
-      ),
-      wiz: (
-        <path
-          d="m3 6 3.2 12h3.1L12 11l2.7 7h3.1L21 6h-3l-1.8 7.1L13.5 6h-3l-2.7 7.1L6 6H3Z"
-          fill="currentColor"
-        />
-      ),
-      okta: (
-        <g fill="none" stroke="currentColor" strokeWidth="3.5">
-          <circle cx="12" cy="12" r="8" />
-          <circle cx="12" cy="12" r="2" fill="currentColor" stroke="none" />
-        </g>
-      ),
-      entra: (
-        <g fill="currentColor">
-          <path d="M12 2 21 7v10l-9 5-9-5V7l9-5Z" opacity=".25" />
-          <path d="m12 5 6 3.5v7L12 19l-6-3.5v-7L12 5Zm0 3.2-3.2 1.9v3.8l3.2 1.9 3.2-1.9v-3.8L12 8.2Z" />
-        </g>
-      ),
-      qualys: (
-        <g fill="none" stroke="currentColor" strokeWidth="3">
-          <circle cx="11" cy="11" r="7" />
-          <path d="m16 16 4 4" strokeLinecap="round" />
-        </g>
-      ),
-      servicenow: (
-        <g fill="currentColor">
-          <path d="M5 16.5a4 4 0 0 1 1.3-7.8 6 6 0 0 1 11.4 1A3.5 3.5 0 1 1 18 17H6a4 4 0 0 1-1-.5Z" />
-          <path
-            d="M8 13h8"
-            stroke="white"
-            strokeWidth="1.5"
-            strokeLinecap="round"
-          />
-        </g>
-      ),
-    };
-    const colors: Record<ConnectorItem["logoType"], string> = {
-      splunk: "text-[#65a637] bg-[#f3f8ed]",
-      ms: "bg-white",
-      elastic: "text-[#00a9a5] bg-[#e8f8f6]",
-      google: "bg-white",
-      crowdstrike: "text-[#e31e24] bg-[#fff0f0]",
-      sentinelone: "text-[#ef4b35] bg-[#fff1ec]",
-      defender: "text-[#0078d4] bg-[#eaf5ff]",
-      paloalto: "text-[#fa582d] bg-[#fff1eb]",
-      aws: "text-[#232f3e] bg-[#fff7e6]",
-      azure: "text-[#0078d4] bg-[#eaf5ff]",
-      gcp: "bg-white",
-      wiz: "text-[#6c4eff] bg-[#f1efff]",
-      okta: "text-[#007dc1] bg-[#eaf6fc]",
-      entra: "text-[#6264a7] bg-[#f1f0ff]",
-      qualys: "text-[#ed1c24] bg-[#fff0f0]",
-      servicenow: "text-[#36a833] bg-[#effaee]",
-    };
+    const iconSrc = logoAssets[type];
 
     return (
       <span
-        className={`relative flex shrink-0 items-center justify-center ${compact ? "h-5 w-5 rounded-md border border-white/90 shadow-[0_2px_0_rgba(148,163,184,0.35),0_3px_6px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.9)]" : "h-12 w-12 rounded-xl border border-white/90 shadow-[0_4px_0_rgba(148,163,184,0.4),0_8px_16px_rgba(0,0,0,0.24),inset_0_1px_0_rgba(255,255,255,0.9)] transition-transform duration-200 group-hover:-translate-y-0.5 after:absolute after:inset-x-2 after:top-[2px] after:h-px after:bg-white/80"} ${colors[type]}`}
+        className={`relative flex shrink-0 items-center justify-center bg-white ${
+          compact
+            ? "h-5 w-5 rounded-md border border-slate-200/90 shadow-[0_1px_2px_rgba(0,0,0,0.1)] p-0.5"
+            : "h-12 w-12 rounded-xl border border-white/90 shadow-[0_4px_12px_rgba(0,0,0,0.25)] transition-transform duration-200 group-hover:-translate-y-0.5 p-2"
+        }`}
       >
-        <svg
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-          className={`${compact ? "h-3.5 w-3.5" : "h-6 w-6 drop-shadow-[0_1px_1px_rgba(15,23,42,0.28)]"}`}
-        >
-          {marks[type]}
-        </svg>
+        <img
+          src={iconSrc}
+          alt=""
+          className="h-full w-full object-contain"
+          loading="lazy"
+        />
         <span className="sr-only">{type} logo</span>
       </span>
     );
